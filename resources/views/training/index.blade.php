@@ -31,10 +31,6 @@
 			@endForeach
 		</div>
 	</div>
-	<hr>
-	<div class="text-center">
-		<a class="btn btn-primary" href="{{ route('training.create')}}">Créer une séance de training</a>
-	</div>
 </div>
 
 <!-- Modal -->
@@ -49,6 +45,7 @@
 				<h4>Voulez vous supprimer ce training ?</h4>
 			</div>
 			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				<a class="btn btn-danger" href="{{ route('training.delete', ['id' => $training->id]) }}">Confirmer</a>
 			</div>
 		</div>

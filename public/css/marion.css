@@ -1,0 +1,5 @@
+.bg-image-section {
+    background: url("../img/back.jpg");
+    background-size: cover;
+    background-position: center;
+}

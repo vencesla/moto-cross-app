@@ -61,7 +61,7 @@ class TrainingController extends Controller
       'type' => $request->type
     ]);
     session()->flash('success', 'Opération réussie !');
-    return redirect('/trainings');
+    return redirect('/');
   }
 
   public function delete($id)
@@ -69,7 +69,7 @@ class TrainingController extends Controller
     Training::find($id)->delete();
 
     session()->flash('success', 'Training supprimé avec succès!');
-    return redirect('/trainings');
+    return redirect('/');
 
   }
 }

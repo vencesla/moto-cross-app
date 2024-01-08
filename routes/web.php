@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserControllers;
+
 use App\Http\Controllers\TrainingController;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +20,11 @@ use App\Http\Controllers\TrainingController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get("/", function () {
+    return view("auth.login");
+})->name('login');
+
 
 Route::get(
     '/trainings',
@@ -39,3 +47,20 @@ Route::post('training/store', [TrainingController::class, 'store',])->name('trai
 Route::get('training/edit/{id}', [TrainingController::class, 'edit',])->name('training.edit');
 Route::post('training/update/{id}', [TrainingController::class, 'update',])->name('training.update');
 Route::get('training/delete/{id}', [TrainingController::class, 'delete',])->name('training.delete');
+Route::get(
+    '/nouveau/utilisaleur',
+    [RegisteredUserController::class, 'create',]
+)->name('compte.create');
+Route::get(
+    'accueil',
+    [RegisteredUserController::class, 'store',],
+)->name('accuei.site');
+Route::get(
+    '/home',
+    function () {
+        return view('dashboard');
+    }
+);
+
+Route::get('/users', [UserController::class, 'index'])->name('all.users');
+
