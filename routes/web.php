@@ -23,16 +23,8 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 Route::get("/", function () {
     return view("auth.login");
-})->name('login');
+});
 
-
-Route::get(
-    '/trainings',
-    [
-        TrainingController::class,
-        'index'
-    ]
-)->name('training.index');
 
 Route::get('training/create', [
     TrainingController::class,
@@ -40,27 +32,25 @@ Route::get('training/create', [
     function () {
         return view('training.create');
     }
-])->name('training.create');
+])->name('training.create')->middleware('checkRole:user');
 
-Route::post('training/store', [TrainingController::class, 'store',])->name('training.store');
+Route::post('training/store', [TrainingController::class, 'store',])->name('training.store')->middleware('checkRole:user');
 
-Route::get('training/edit/{id}', [TrainingController::class, 'edit',])->name('training.edit');
-Route::post('training/update/{id}', [TrainingController::class, 'update',])->name('training.update');
-Route::get('training/delete/{id}', [TrainingController::class, 'delete',])->name('training.delete');
+Route::get('training/edit/{id}', [TrainingController::class, 'edit',])->name('training.edit')->middleware('checkRole:user');
+Route::post('training/update/{id}', [TrainingController::class, 'update',])->name('training.update')->middleware('checkRole:user');
+Route::get('training/delete/{id}', [TrainingController::class, 'delete',])->name('training.delete')->middleware('checkRole:user');
+
 Route::get(
-    '/nouveau/utilisaleur',
-    [RegisteredUserController::class, 'create',]
-)->name('compte.create');
-Route::get(
-    'accueil',
-    [RegisteredUserController::class, 'store',],
-)->name('accuei.site');
+    '/trainings',
+    [
+        TrainingController::class,
+        'index'
+    ]
+)->name('training.index')->middleware('checkRole:user');
 Route::get(
     '/home',
-    function () {
-        return view('dashboard');
-    }
-);
-
-Route::get('/users', [UserController::class, 'index'])->name('all.users');
-
+    [
+        TrainingController::class,
+        'stores'
+    ]
+)->name('training.home')->middleware('checkRole:user');

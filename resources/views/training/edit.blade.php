@@ -4,7 +4,7 @@
 
 <div class="container mt-4">
     <h1 class="text-center">Modification d'un training</h1>
-    <form action="{{route('training.update', ['id' => $training->id])}}" method="post">
+    <form action="{{ route('training.update', ['id' => $training->id]) }}" method="post">
         @csrf
         @update
         <div class="form-group">

@@ -49,4 +49,15 @@ class User extends Authenticatable
 
         return response()->json($users);
     }
+
+    /**
+     * Vérifie si l'utilisateur a un rôle spécifique.
+     *
+     * @param string $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
 }
