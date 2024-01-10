@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserControllers;
@@ -23,7 +24,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 Route::get("/", function () {
     return view("auth.login");
-});
+})->name("home");
 
 
 Route::get('training/create', [
@@ -54,3 +55,8 @@ Route::get(
         'stores'
     ]
 )->name('training.home')->middleware('checkRole:user');
+
+Route::get('/weather', [WeatherController::class, 'index']);
+Route::get('weather/city', [WeatherController::class, 'city'])->name('weather.city');
+Route::post('ville/insee', [WeatherController::class, 'code'])->name('weather.insee');
+Route::get('ville/insee/{insee}', [WeatherController::class, 'showCode'])->name('insee.detail');

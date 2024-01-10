@@ -1,5 +1,17 @@
 .bg-image-section {
-    background: url("../img/back.jpg");
+    background: url("../img/back.png");
     background-size: cover;
     background-position: center;
+}
+
+.btn-success:hover {
+    background-color: #68af84;
+    /* Firefox */
+    -moz-transition: all 1s ease-in;
+    /* WebKit */
+    -webkit-transition: all 1s ease-in;
+    /* Opera */
+    -o-transition: all 1s ease-in;
+    /* Standard */
+    transition: all 1s ease-in;
 }
