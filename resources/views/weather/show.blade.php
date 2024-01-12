@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h2 class="mt-4 text-center">Le code <strong>INSEE</strong> : {{ $code_insee['city']['insee'] }}</h2>
+        <p>Bonjour <strong>{{ Auth::user()->name }}</strong>, ci-dessous les détails de votre code INSEE</p>
         <div class="row mt-4">
             <div class="col-sm-4 mb-4">
                 <div class="card bg-primary" style="width: 18rem;color:#fff;">
@@ -16,9 +17,12 @@
                         <li class="list-group-item  text-white">Altitude : {{ $code_insee['city']['altitude'] }}</li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-sm-4 m-auto">
-                <a href="{{ route('weather.city') }}" class="btn text-black btn-light">Sortir</a>
+                <div class="mt-2 text-center" style="width: 18rem;">
+                    <a href="{{ route('training.index') }}" class="btn btn-primary mt-4">Liste des trainings</a>
+                </div>
+                <div class="mt-2 text-center" style="width: 18rem;">
+                    <a href="{{ route('weather.city') }}" class="btn text-black btn-light my-4">Sortir</a>
+                </div>
             </div>
         </div>
     </div>

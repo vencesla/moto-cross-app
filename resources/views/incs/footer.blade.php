@@ -4,7 +4,6 @@
     <hr class="m-0" />
 
     <div class="text-center py-4 align-items-center">
-        <p>Follow MDB on social media</p>
         <a href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" class="btn btn-primary m-1" role="button"
             data-mdb-ripple-init rel="nofollow" target="_blank">
             <i class="fab fa-youtube"></i>

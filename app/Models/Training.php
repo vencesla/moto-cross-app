@@ -14,5 +14,11 @@ class Training extends Model
         'length',
         'max_people',
         'type',
+        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

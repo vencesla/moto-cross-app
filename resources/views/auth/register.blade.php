@@ -3,11 +3,16 @@
     <section class="vh-100 bg-image-section">
         <div class="container h-100 mb-4">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-6">
-                    @if ($errors->has('password'))
-                        <span>{{ $errors->first('name') }}</span>
+                <div class="col-xl-8">
+                    @if ($errors->any())
+                        <div class="mt-4 alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endif
-
                     <form action="{{ route('register') }}" method="POST">
                         @csrf
                         <div class="card" style="border-radius: 15px;">
@@ -29,7 +34,7 @@
                                 <div class="row align-items-center pt-4 pb-3">
                                     <div class="col-md-3 ps-5">
 
-                                        <h6 class="mb-0">Adresse Email</h6>
+                                        <h6 class="mb-0">Email</h6>
 
                                     </div>
                                     <div class="col-md-9 pe-5">

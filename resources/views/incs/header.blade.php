@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 70px">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">MOTOCROSS</a>
+        @auth
+            <a class="navbar-brand" href="{{ route('training.index') }}">MOTOCROSS</a>
+        @endauth
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,12 +14,21 @@
                         <a class="nav-link" href="{{ route('training.create') }}">Nouveau training</a>
                     </li>
                 @endauth
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.all') }}">Mon compte</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('schedules.create') }}">Nouveau créneau</a>
+                    </li>
+                @endauth
+
             </ul>
             <span class="navbar-text">
                 @auth
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        {{ Auth::user()->name }}
                         <button class="btn btn-small btn-block btn-light text-black" type="submit">Déconnexion</button>
                     </form>
                 @else

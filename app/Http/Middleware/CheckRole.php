@@ -13,7 +13,7 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $role): Response
+    public function handle(Request $request, Closure $next, $role)
     {
         // Vérifier si l'utilisateur a le rôle requis
         if ($request->user() && $request->user()->hasRole($role)) {
@@ -21,6 +21,6 @@ class CheckRole
         }
 
         // Rediriger ou renvoyer une réponse d'erreur selon vos besoins
-        return response('Unauthorized.', 401);
+        return redirect('/unauthorized');
     }
 }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cerulean/bootstrap.min.css">
     <!-- MDB -->
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/marion.css') }}" />
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-    @if (Route::currentRouteName() !== 'login')
+    @if (Route::currentRouteName() !== 'login' && Route::currentRouteName() !== 'home')
         @include('incs.header')
     @endif
 
@@ -28,7 +29,7 @@
 
     <!-- Optional JavaScript; choose one of the two! -->
 
-    @if (Route::currentRouteName() !== 'login')
+    @if (Route::currentRouteName() !== 'login' && Route::currentRouteName() !== 'home')
         @include('incs.footer')
     @endif
     <!-- Option 1: Bootstrap Bundle with Popper -->

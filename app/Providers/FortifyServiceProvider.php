@@ -36,8 +36,8 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);
-        //$this->app->singleton(LoginResponseContract::class, LoginResponse::class);
-        //Fortify::ignoreRoutes();
+        $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
+        // Fortify::ignoreRoutes();
 
 
         Fortify::createUsersUsing(CreateNewUser::class);
